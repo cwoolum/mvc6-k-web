@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     // Please see the Grunt documentation for more information regarding task
     // creation: http://gruntjs.com/creating-tasks
 
-    grunt.registerMultiTask('k-web-start', 'A simple grunt plugin for running the KPM server.', function () {
+    grunt.registerTask('k-web-start', 'A simple grunt plugin for running the KPM server.', function () {
         var data = this.data
        , childProcess
        , done = this.async();
@@ -29,11 +29,6 @@ module.exports = function (grunt) {
 
         childProcess = cp.exec("k", "web", callback);
 
-        stdout && childProcess.stdout.on('data', function (d) { log.write(d); });
-        stderr && childProcess.stderr.on('data', function (d) { log.error(d); });
-
-        // Catches failing to execute the command at all (eg spawn ENOENT),
-        // since in that case an 'exit' event will not be emitted.
         childProcess.on('error', function (err) {
             log.error(f('Failed with: %s', err));
             done(false);
