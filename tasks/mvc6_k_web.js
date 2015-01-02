@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     // Please see the Grunt documentation for more information regarding task
     // creation: http://gruntjs.com/creating-tasks
 
-    grunt.registerMultiTask('k:web', 'A simple grunt plugin for running the KPM server.', function () {
+    grunt.registerMultiTask('k-web-start', 'A simple grunt plugin for running the KPM server.', function () {
         var data = this.data
        , childProcess
        , done = this.async();
