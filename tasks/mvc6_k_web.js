@@ -23,7 +23,7 @@ module.exports = function (grunt) {
         var childProcess,
         done = this.async();
 
-        childProcess = cp.exec("k", "web", function (error, stdout, stderr) {
+        childProcess = cp.exec("k web", {}, function (error, stdout, stderr) {
             console.log('stdout: ' + stdout);
             console.log('stderr: ' + stderr);
             if (error !== null) {
