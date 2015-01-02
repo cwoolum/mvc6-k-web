@@ -37,10 +37,10 @@ module.exports = function (grunt) {
         });
 
         childProcess.on('exit', function (code) {
-            if (exitCodes.indexOf(code) < 0) {
-                log.error(f('Exited with code: %d.', code));
-                return done(false);
-            }
+            //if (exitCodes.indexOf(code) < 0) {
+            //    log.error(f('Exited with code: %d.', code));
+            //    return done(false);
+            //}
 
             verbose.ok(f('Exited with code: %d.', code));
             done();
