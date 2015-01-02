@@ -20,13 +20,9 @@ module.exports = function (grunt) {
     // creation: http://gruntjs.com/creating-tasks
 
     grunt.registerTask('k-web-start', 'A simple grunt plugin for running the KPM server.', function () {
-        var data = this.data
-       , childProcess
-       , done = this.async();
-
-        data.cwd && (execOptions.cwd = data.cwd);
-        data.maxBuffer && (execOptions.maxBuffer = data.maxBuffer);
-
+        var childProcess,
+        done = this.async();
+     
         childProcess = cp.exec("k", "web", callback);
 
         childProcess.on('error', function (err) {
