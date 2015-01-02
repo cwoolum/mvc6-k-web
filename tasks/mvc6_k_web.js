@@ -22,8 +22,14 @@ module.exports = function (grunt) {
     grunt.registerTask('k-web-start', 'A simple grunt plugin for running the KPM server.', function () {
         var childProcess,
         done = this.async();
-     
-        childProcess = cp.exec("k", "web", callback);
+
+        childProcess = cp.exec("k", "web", function (error, stdout, stderr) {
+            console.log('stdout: ' + stdout);
+            console.log('stderr: ' + stderr);
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            }
+        });
 
         childProcess.on('error', function (err) {
             log.error(f('Failed with: %s', err));
